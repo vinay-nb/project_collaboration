@@ -119,8 +119,69 @@ const user_refresh_token = (req, res, next) => {
 
 // ---------------user update------------------
 const user_update = (req, res, next) => {
+    let user_name_frontend = req.body._id;
+    let update_data = {
+        user_name: req.body.user_name,
+        first_name : req.body.first_name,
+        last_name : req.body.last_name,
+        email: req.body.email,
+        password: req.body.password,
+        contact_number: req.body.contact_number,
+        project: req.body.project,
+        coding_profile: req.body.coding_profile,
+        skills: req.body.skills,
+        bio: req.body.bio,
+        avatar: req.body.avatar
+    }
+    user.findByIdAndUpdate(user_name_frontend, update_data)
+    .then(response => {
+        res.json({
+            message: response
+        })
+        console.log("user profile updated successfully")
+    })
+    .catch(error => {
+        res.json({
+            message: error
+        })
+        console.log("error in user_update function")
+    })
+}
 
+// ---------------user delete------------------
+const user_delete = (req, res, next) => {
+    const user_delete = req.body._id
+    user.findByIdAndRemove(user_delete)
+    .then(() => {
+        res.json({
+            message: "user profile deleted successfully"
+        })
+    })
+    .catch(error => {
+        res.json({
+            message: error
+        })
+        console.log("error in user_delete function")
+    })
+}
+
+// ---------------getalluser------------------
+const user_all = (req, res, next) => {
+    user.find().
+    then(response => {
+        res.json({
+            message: response
+        })
+    })
+    .catch(error => {
+        res.json({
+            message: error
+        })
+        console.log("error in user_all function")
+    })
 }
 
 
-module.exports = {user_signup, user_login, user_refresh_token, user_update};
+
+module.exports = {user_signup, user_login, user_refresh_token, 
+    user_update, user_delete, user_all};
