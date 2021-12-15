@@ -38,6 +38,6 @@ app.get('/', (req, res) => {
 })
 
 // runnning server
-const server = app.listen(3000, ()=> {
-    console.log('server running at 3000');
+const server = app.listen(9000, ()=> {
+    console.log('server running at 9000');
 })
