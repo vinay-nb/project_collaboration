@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Signin from './user_signin';
+
 const Signup = (props) => {
     return (
         <Container>
@@ -10,18 +11,21 @@ const Signup = (props) => {
             </Nav>
             <Section>
                 <Welcome>
-                    <h1>Find you project collaborator</h1>
+                    <h1>Find you Project Collaborator</h1>
                 </Welcome>
                 <Form method="post">
                     <UserSignUp>
                         <div>
-                            <input type = "text" id="username" name="username" placeholder='Username'/> <br/>
-                            <input type = "text" id="email" name="email" placeholder='First name'/> <br/>
-                            <input type = "text" id="email" name="email" placeholder='Last name'/> <br/>
-                            <input type = "email" id="email" name="email" placeholder='Email'/> <br/>
-                            <input type = "password" id="password"  name="password" placeholder='Password'/> <br/>
+                            <input type = "text" id="username" name="username" placeholder='Username' required/> <br/>
+                            <input type = "text" id="email" name="email" placeholder='First name' required/> <br/>
+                            <input type = "text" id="email" name="email" placeholder='Last name' required/> <br/>
+                            <input type = "email" id="email" name="email" placeholder='Email' required/> <br/>
+                            <input type = "password" id="password"  name="password" placeholder='Password' required/> <br/>
                         </div>
                     </UserSignUp>
+                    <Tc>    
+                        {/* <p>By clicking Agree & Join, you agree to the Project Collaboration <a>user agreement</a></p> */}
+                    </Tc>
                     <SigninButton>
                         Agree & Join
                     </SigninButton>
@@ -32,13 +36,11 @@ const Signup = (props) => {
                         <img src="/Images/google.svg" alt="not found"/>
                          Sign up with Google
                     </Google>
-                    <Member>
-                        Already on Project Collaboration? <a href="/Signin">Sign in</a>
-                    </Member>
                 </Form>
-                <Tc>    
-
-                </Tc>
+                <Member>
+                        <h3>Already on Project Collaboration? <a href="/Signin">Sign in</a></h3>
+                </Member>
+                
             </Section>
             
         </Container>
@@ -81,6 +83,7 @@ const ProjectColl = styled.a`
     justify-content: space-between;
     flex-wrap:nowrap;
     color: #0a66c2;
+    margin-top: 1px;
     & > pheading{
         width: 135px;
         height: 34px;
@@ -119,7 +122,7 @@ const Welcome = styled.div`
     max-width:1128px;
     margin: auto;
     margin-left: 450px;
-    margin-top: -75px;
+    margin-top: -85px;
     padding: 8px 0 16px;
     display: flex;
     align-item: center;
@@ -148,7 +151,7 @@ const Form = styled.div`
 `;  
 
 const UserSignUp = styled.div`
-    margin-top: -110px;
+    margin-top: -130px;
     input {
         margin-left: 390px;
         display:flex;
@@ -234,15 +237,20 @@ const Or = styled.label`
     font-size: 20px;
 `;
 
-const Tc = styled.label`
+const Tc = styled.p`
     color: #86888a;
-    margin-left: 590px;
-    font-size: 20px;
+    margin-right: 435px;
+    margin-left: 485px; 
+    font-size: 11px;
+    display: inline;
 `;
 
-const Member = styled.a`
-    margin-top: -30px;   
-    margin-left: 390px;
+const Member = styled.h3`
+    // margin-right: 490px;
+    margin-left: 435px;
+    margin-top:10px;
+    display: inline-block;
+    overflow:hidden;    
 `;
 
 

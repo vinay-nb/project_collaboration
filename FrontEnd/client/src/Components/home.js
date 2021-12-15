@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import signup  from './user_registration';
+import signin from './user_signin';
 // import {Navbar} from 'react-bootstrap'
 
 const Home = (props) => {
@@ -13,7 +14,9 @@ const Home = (props) => {
                     <Join> 
                         <a href="/signup"> Join now </a>    
                     </Join>
-                    <SignIn>Sign in</SignIn>
+                    <SignIn>
+                        <a href="/signin"> Sign in </a>
+                    </SignIn>
                 </div>
             </Nav>
             <Section>
@@ -24,8 +27,8 @@ const Home = (props) => {
                 <Form method="post">
                     <UserSignIn>
                         <div>
-                            <input type = "email" id="email" name="email" placeholder='Email or username'/> <br/>
-                            <input type = "password" id="password"  name="password" placeholder='Password'/> <br/>
+                            <input type = "email" id="email" name="email" placeholder='Email or username' required /> <br/>
+                            <input type = "password" id="password"  name="password" placeholder='Password' required /> <br/>
                             <a href> Forgot password? </a><br/><br/>
                         </div>
                     </UserSignIn>
