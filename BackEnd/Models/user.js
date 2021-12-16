@@ -27,7 +27,7 @@ const user_schema = new schema({
     password: {
         type: String,
         required: true,
-        min:8
+        min:6
     },
     contact_number: {
         type: Number,

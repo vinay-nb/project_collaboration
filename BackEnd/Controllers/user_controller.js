@@ -10,7 +10,7 @@ const user_signup = async (req, res, next) => {
     const userName = req.body.user_name;
     const is_new_userName = await user.is_username_in_use(userName)
     if(!is_new_userName) {
-        res.json({
+        res.status(403).json({
             sucess: false,
             message: 'user name exists'
         })
@@ -21,7 +21,7 @@ const user_signup = async (req, res, next) => {
     const user_email = req.body.email;
     const is_new_user = await user.is_email_in_use(user_email)
     if(!is_new_user) {
-        res.json({
+        res.status(403).json({
             sucess: false,
             message: 'email id exists'
         })
@@ -42,16 +42,18 @@ const user_signup = async (req, res, next) => {
     }
     user_details.save()
     .then(response => {
-        res.json({
+        res.status(201).json({
             message: response
         })
         console.log('user registration successfull')
+        return;
     })
     .catch(error => {
         res.json({
             message: error
         })
         console.log("user registration failed")
+        return;
     })
     
 }
