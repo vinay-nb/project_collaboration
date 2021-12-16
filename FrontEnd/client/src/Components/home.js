@@ -28,7 +28,7 @@ const Home = (props) => {
                     <UserSignIn>
                         <div>
                             <input type = "email" id="email" name="email" placeholder='Email or username' required /> <br/>
-                            <input type = "password" id="password"  name="password" placeholder='Password' required /> <br/>
+                            <input type = "password" id="password"  name="password" placeholder='Password (6 or more character)' required /> <br/>
                             <a href> Forgot password? </a><br/><br/>
                         </div>
                     </UserSignIn>
